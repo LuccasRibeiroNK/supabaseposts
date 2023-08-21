@@ -72,11 +72,11 @@ function Success() {
       <header className="App-header text-center ">
         <h1 className="text-4xl font-semibold">Confira seus posts:</h1>
       </header>
-      <div className="mt-8 max-w-xl">
+      <div className="mt-8 compilationGrid">
         {posts.map((post) => (
           <div
             key={post.id}
-            className={`p-4 border border-gray-300 mb-4 ${
+            className={`p-5 border border-gray-300 mb-4 bg-gray-200 ${
               expandedPostId === post.id ? "expanded" : "collapsed"
             }`} // Adicione a classe "expanded" ou "collapsed" dependendo do estado do post
             onClick={() => {
@@ -112,7 +112,7 @@ function Success() {
 
               {/* Botão de exclusão */}
               <button
-                className="bg-red-500 text-white px-3 py-1 mt-2 rounded"
+                className=" bg-red-500 text-white px-3 py-1 mt-2 rounded"
                 onClick={async () => {
                   // Chame a função para excluir o post passando o ID do post
                   await deletePost(post.id);

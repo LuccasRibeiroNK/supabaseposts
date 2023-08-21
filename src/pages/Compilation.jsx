@@ -67,55 +67,58 @@ function Compilation() {
 
   return (
     <div className="App mt-16 ">
-      <header className="App-header text-center ">
+      <header className="App-header text-center">
         <h1 className="text-4xl font-semibold">Confira todos os posts!</h1>
       </header>
-      <div className="container">
-        <div className="row">
-          <ul className="list-group">
-            <div className="mt-8 max-w-xl">
-              {posts.map((post) => (
-                <div
-                  key={post.id}
-                  className={`p-4 border border-gray-300 mb-4 ${
-                    expandedPostId === post.id ? "expanded" : "collapsed"
-                  }`} // Adicione a classe "expanded" ou "collapsed" dependendo do estado do post
-                  onClick={() => {
-                    // Altere o estado do post para o ID do post clicado
-                    if (expandedPostId === post.id) {
-                      setExpandedPostId(null);
-                    } else {
-                      setExpandedPostId(post.id);
-                    }
-                  }}
-                >
-                  <div className="postsWindows">
-                    <h2 className="text-2xl font-semibold">{post.title}</h2>
-                    {post.imagem_url && (
-                      <img
-                        src={JSON.parse(post.imagem_url).publicUrl}
-                        alt="post Alt"
-                        className="w-56 mt-4"
-                      />
-                    )}
-                    <p className="text-gray-500 mt-2 ">
-                      {expandedPostId === post.id
-                        ? post.text
-                        : post.text.slice(0, 60)}
-                      {post.text.length > 60 &&
-                        expandedPostId !== post.id &&
-                        "..."}
-                    </p>
-                    <p className="text-gray-500 mt-2 text-sm italic">
-                      Originalmente postado em: {formatDate(post.date)}
-                    </p>
-                    <p className="text-gray-500 text-sm italic">
-                      por: {post.autor_name}
-                    </p>
-
-                    {/* Botão de exclusão */}
+      <div className="mt-8 compilationGrid">
+        {posts.map((post) => (
+          <div
+            key={post.id}
+            className={`p-5 border border-gray-300 mb-4 bg-gray-200
+                ${expandedPostId === post.id ? "expanded" : "collapsed"}`} // Adicione a classe "expanded" ou "collapsed" dependendo do estado do post
+            onClick={() => {
+              // Altere o estado do post para o ID do post clicado
+              if (expandedPostId === post.id) {
+                setExpandedPostId(null);
+              } else {
+                setExpandedPostId(post.id);
+              }
+            }}
+          >
+            <div className="postsWindows">
+              <h2 className="text-2xl font-semibold">{post.title}</h2>
+              {post.imagem_url && (
+                <img
+                  src={JSON.parse(post.imagem_url).publicUrl}
+                  alt="post Alt"
+                  className="w-56 mt-4" // Defina um tamanho fixo (40 unidades) e use object-cover para ajustar a imagem
+                />
+              )}
+              <p className="text-gray-500 mt-2 ">
+                {expandedPostId === post.id
+                  ? post.text
+                  : post.text.slice(0, 60)}
+                {post.text.length > 60 && expandedPostId !== post.id && "..."}
+              </p>
+              <p className="text-gray-500 mt-2 text-sm italic">
+                Originalmente postado em: {formatDate(post.date)}
+              </p>
+              <div className="flex items-center">
+                <p className="text-gray-500 text-sm italic">
+                  por: {post.autor_name}
+                </p>
+                <img
+                  src={post.autor_avatar_url}
+                  alt={post.autor_name}
+                  className="w-6 rounded-full mt-2 ml-0.5" // Adicione margem à esquerda para separação
+                />
+              </div>
+              {/* Botão de exclusão */}
+              <div className="inline-block align-baseline">
+                <ul>
+                  <li>
                     <button
-                      className="bg-red-500 text-white px-3 py-1 mt-2 rounded"
+                      className="bg-red-500 text-white px-3 py-1 mt-2 rounded "
                       onClick={async () => {
                         // Chame a função para excluir o post passando o ID do post
                         await deletePost(post.id);
@@ -123,12 +126,12 @@ function Compilation() {
                     >
                       Excluir
                     </button>
-                  </div>
-                </div>
-              ))}
+                  </li>
+                </ul>
+              </div>
             </div>
-          </ul>
-        </div>
+          </div>
+        ))}
       </div>
     </div>
   );

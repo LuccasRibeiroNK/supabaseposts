@@ -59,6 +59,7 @@ function CreatePosts() {
           imagem_url: imageUrl, // passando a url da imagem para o campo imagem_url
           autor_id: user.id,
           autor_name: user.user_metadata.full_name,
+          autor_avatar_url: user.user_metadata.avatar_url,
         },
       ],
       { onConflict: "id" }
@@ -76,7 +77,7 @@ function CreatePosts() {
 
   return (
     <div className="flex mt-12">
-      <div className="flex-1 p-8">
+      <div className="mt-12 flex-1 p-8 border-2 max-w-7xl  border-gray-400 rounded-l bg-gray-200">
         <h1 className="text-2xl font-semibold mb-4">Criar novo post</h1>
         <form onSubmit={handlePostSubmit}>
           <input
@@ -98,6 +99,12 @@ function CreatePosts() {
             }
             required
           />
+          <p
+            className="mb-2 text-sm text-gray-500
+          "
+          >
+            Adicione uma imagem ao seu post:
+          </p>
           <input
             type="file"
             accept="image/jpeg, image/jpg, image/png"

@@ -1,0 +1,28 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800">
+	<title>1737-ai-svg</title>
+	<defs>
+		<radialGradient id="g1" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(-232.313,-1672.562,1672.562,-232.313,512.759,-181.761)">
+			<stop offset="0" stop-color="#ffff00"/>
+			<stop offset="1" stop-color="#ff0000"/>
+		</radialGradient>
+		<radialGradient id="g2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(-56.199,-404.602,404.602,-56.199,269.493,378.284)">
+			<stop offset="0" stop-color="#ff0000"/>
+			<stop offset=".42" stop-color="#9f0000"/>
+			<stop offset="1" stop-color="#240000"/>
+		</radialGradient>
+	</defs>
+	<style>
+		.s0 { fill: url(#g1) } 
+		.s1 { fill: url(#g2) } 
+	</style>
+	<g id="_Artboards_">
+	</g>
+	<g id="24">
+		<g id="&lt;Group&gt;">
+			<path id="&lt;Path&gt;" class="s0" d="m800-156.4c-44.2 549.1-244.9 925.5-442.8 954.7-151.6 21.7-286.7-164-352.8-449.5-12.9-76.7 3.9-100 34.6-95.3 128.1 22 258.3 372 480.2 81.4-16.3 63-35.1 115.4-53.5 152.6 83-20.9 263.3-175.4 334.3-643.9z"/>
+			<path id="&lt;Path&gt;" class="s1" d="m1 286.3c3.6-26.9 18.4-35.9 38-32.8 128.1 22 258.3 372 480.2 81.4-74.1 138.4-149.8 177.9-220.1 166.8-99.9-14.7-269.1-326.5-298.1-215.4z"/>
+		</g>
+	</g>
+	<g id="Layer 1">
+	</g>
+</svg>

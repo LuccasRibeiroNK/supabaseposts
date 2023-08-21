@@ -1,4 +1,6 @@
 import "../index.css";
+import "../App.css";
+
 import { useContext } from "react";
 import { CounterContext } from "../contexts/Counter";
 import { Link, useNavigate } from "react-router-dom";
@@ -27,63 +29,92 @@ function Header() {
   return (
     <div>
       {Object.keys(user) != 0 ? (
-        <header className="fixed top-0 w-full mx-auto bg-red-500">
-          <div className="flex items-center justify-evenly ">
-            <div>
-              <ul className="list-none flex">
-                <li>Posters</li>
-              </ul>
+        <div className="app-container">
+          <header className="header">
+            <div className="flex items-center justify-evenly ">
+              <div>
+                <ul className="ulHeader">
+                  <Link to="/compilation">
+                    <img
+                      src="/src/assets/logo.svg"
+                      alt="Logo"
+                      className="logo"
+                    />
+                  </Link>
+                </ul>
+              </div>
+              <div>
+                <ul className="ulHeader">
+                  <li className="p-2  text-lg/2  text-slate-900 ">
+                    <Link to="/compilation">Home</Link>
+                  </li>
+                  <li className="yourPosts p-2 text-lg/2  text-slate-900 ">
+                    <Link to="/success">Your Posts</Link>
+                  </li>
+                  <li className="p-2  text-lg/2  text-slate-900 ">
+                    <Link to="/createposts">Create new posts</Link>
+                  </li>
+                  <li className="p-2  text-lg/2  text-slate-900 ">Contact</li>
+                  <img
+                    src={user.user_metadata.avatar_url}
+                    alt="avatar"
+                    className="avatar-image"
+                  />
+                  <button
+                    className="bg-yellow-500 hover:bg-yellow-700  font-bold py-2 px-4 rounded"
+                    onClick={signOutUser}
+                  >
+                    Logout
+                  </button>
+                </ul>
+              </div>
             </div>
-            <div>
-              <ul className="list-none flex items-center  justify-end gap-4">
-                <li className="p-2">
-                  <Link to="/compilation">Home</Link>
-                </li>
-                <li className="p-2">
-                  <Link to="/success">Your Posts</Link>
-                </li>
-                <li className="p-2">
-                  <Link to="/createposts">Create new posts</Link>
-                </li>
-                <li className="p-2">Contact</li>
-                <img
-                  src={user.user_metadata.avatar_url}
-                  alt="avatar"
-                  className="avatar-image"
-                />
-                <button
-                  className="bg-yellow-500 hover:bg-yellow-700  font-bold py-2 px-4 rounded"
-                  onClick={signOutUser}
-                >
-                  Logout
-                </button>
-              </ul>
-            </div>
-          </div>
-        </header>
+          </header>
+        </div>
       ) : (
-        <header className="fixed top-0 w-full mx-auto bg-red-500">
-          <div className="flex items-center justify-evenly ">
-            <div>
-              <ul className="list-none flex">
-                <li>Posters</li>
-              </ul>
-            </div>
-            <ul className="list-none flex justify-end gap-4 align-top">
-              <li className="p-2">
-                <Link to="/compilation">All Posts</Link>
-              </li>
-              <li className="p-2">About</li>
-            </ul>
+        <div className="app-container">
+          <header className="header">
+            <div className="flex items-center justify-evenly ">
+              <div>
+                <ul className="ulHeader">
+                  <Link to="/compilation">
+                    <img
+                      src="/src/assets/logo.svg"
+                      alt="Logo"
+                      className="logo"
+                    />
+                  </Link>
+                </ul>
+              </div>
+              <div>
+                <ul className="ulHeader logoHome">
+                  <li className="p-2  text-lg/2 w-8 text-slate-900 ">
+                    <Link to="/compilation">
+                      <img
+                        src="/src/assets/home-house-svgrepo-com.svg"
+                        alt="Logo"
+                        className="logoHome"
+                      />
+                    </Link>
+                    <Link to="/compilation"></Link>
+                  </li>
 
-            <button
-              className="bg-yellow-500 hover:bg-yellow-700  font-bold py-2 px-4 rounded"
-              onClick={signOutUser}
-            >
-              Login Page
-            </button>
-          </div>
-        </header>
+                  <li className="p-2  text-lg/2  text-slate-900 ">
+                    <Link to="/">Create new posts</Link>
+                  </li>
+                  <li className="p-2  text-lg/2  text-slate-900 ">Contact</li>
+
+                  <button
+                    className="bg-yellow-500 hover:bg-yellow-700  font-bold py-2 px-4 rounded"
+                    onClick={signOutUser}
+                  >
+                    Logout
+                  </button>
+                </ul>
+              </div>
+            </div>
+          </header>
+        </div>
       )}
     </div>
   );
